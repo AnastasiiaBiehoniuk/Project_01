@@ -1,0 +1,87 @@
+.gender-checker {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 25px;
+  border-radius: 16px;
+  background-color: #fff0f5f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", sans-serif;
+}
+
+.gender-checker h2 {
+  text-align: center;
+  color: #cc3366;
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+.gender-checker .input-group {
+  display: flex;
+  margin-bottom: 12px;
+}
+
+.gender-checker input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ffb6c1;
+  font-size: 16px;
+  background-color: #fffafd;
+  color: #333333; 
+}
+
+.gender-checker button {
+  padding: 12px 16px;
+  background-color: #ff69b4;
+  color: rgba(255, 255, 255, 0.998);
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  white-space: nowrap;
+}
+
+.gender-checker button:hover {
+  background-color: #ff85c1;
+}
+
+.result {
+  margin-top: 20px;
+  background-color: #ffe4ec;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 15px;
+  color: #333;
+}
+
+.result p {
+  margin: 6px 0;
+}
+
+.error {
+  color: #cc0033;
+  text-align: center;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+@media (max-width: 480px) {
+  .gender-checker {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  .gender-checker .input-group {
+    flex-direction: column;
+  }
+
+  .gender-checker input {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .gender-checker button {
+    width: 100%;
+  }
+}

@@ -7,8 +7,9 @@ import { Counter } from "./components/Counter/Counter";
 import PersonalGreeting from "./components/PersonalGreeting/PersonalGreeting";
 import WeightCalculator from "./components/WeightCalculator/WeightCalculator";
 import SpaceMissionForm from "./components/SpaceMissionForm/SpaceMissionForm";
-
-
+import Demo from "./components/Demo";
+import { AgePredictor } from "./components/AgePredictor/AgePredictor";
+import GenderChecker from "./components/GenderChecker/GenderChecker";
 
 function App() {
   const name = "Vasiliy";
@@ -20,6 +21,9 @@ function App() {
   };
   return (
     <>
+      <GenderChecker />
+      <AgePredictor />
+      <Demo />
       <SpaceMissionForm />
       <WeightCalculator />
       <Counter />
@@ -29,6 +33,10 @@ function App() {
       <Greeting name={"Evgenii"} age={18} />
       <ThankYou />
       <Goodbye />
+      {/* <Greeting name={name} />
+      <Greeting name={"Evgenii"} age={18} /> */}
+      {/* <ThankYou />
+      <Goodbye /> */}
       <ProfileCard {...user} />
       {/* <Card
         url={
