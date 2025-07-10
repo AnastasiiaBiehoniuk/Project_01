@@ -1,52 +1,44 @@
 import "./App.css";
-import Greeting from "./components/Greeting/Greeting";
-import ThankYou from "./components/ThankYou/ThankYou";
-import Goodbye from "./components/Goodbye/Goodbye";
-import ProfileCard from "./components/ProfileCard/ProfileCard";
 import { Counter } from "./components/Counter/Counter";
-import PersonalGreeting from "./components/PersonalGreeting/PersonalGreeting";
-import WeightCalculator from "./components/WeightCalculator/WeightCalculator";
-import SpaceMissionForm from "./components/SpaceMissionForm/SpaceMissionForm";
-import Demo from "./components/Demo";
 import { AgePredictor } from "./components/AgePredictor/AgePredictor";
-import GenderChecker from "./components/GenderChecker/GenderChecker";
+import { GenderPredictor } from "./components/GenderPredictor/GenderPredictor";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home/Home";
+import NotFound from "./pages/NotFound/NotFound";
+import { MainLayout } from "./layout/MainLayout";
+import { PonyLayout } from "./layout/PonyLayout";
+import MyPony from "./components/pony/MyPony/MyPony";
+import BuyPony from "./components/pony/BuyPony/BuyPony";
+import { ROUTES } from "./constants/routes";
+import Registration from "./pages/Registration/registration";
+import About from "./pages/About/About";
+import Contact from "./pages/Contact/Contact";
+import Settings from "./pages/Account/Settings";
+import UserInfo from "./pages/Account/UserInfo";
 
 function App() {
-  const name = "Vasiliy";
-  const user = {
-    avatar:
-      "https://i.etsystatic.com/45893541/r/il/545bc4/6453954482/il_1080xN.6453954482_q062.jpg",
-    name: "Smiling Cat",
-    description: "A meme of the smiling cat, ready to make people happy!",
-  };
   return (
     <>
-      <GenderChecker />
-      <AgePredictor />
-      <Demo />
-      <SpaceMissionForm />
-      <WeightCalculator />
-      <Counter />
-      <Counter />
-      <PersonalGreeting />
-      <Greeting name={name} />
-      <Greeting name={"Evgenii"} age={18} />
-      <ThankYou />
-      <Goodbye />
-      {/* <Greeting name={name} />
-      <Greeting name={"Evgenii"} age={18} /> */}
-      {/* <ThankYou />
-      <Goodbye /> */}
-      <ProfileCard {...user} />
-      {/* <Card
-        url={
-          "https://www.worldsbestcatlitter.com/wp-content/uploads/2019/12/02_coughing-cat-meme.jpg"
-        }
-        alt="cat meme"
-      />
-    
-      <img src="/a.jpg" alt="cat" />
-      <img src={catPicture} alt="cat" /> */}
+      <BrowserRouter>
+        <Routes>
+          <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+          <Route path="/" element={<MainLayout />}>
+          <Route path="settings" element={<Settings />} />
+          <Route path="user" element={<UserInfo />} />
+            <Route index element={<Home />} />
+            <Route path={ROUTES.REGISTRATION} element={<Registration />} />
+            <Route path={ROUTES.GENDER_PREDICTOR} element={<GenderPredictor />} />
+            <Route path="/age-predictor" element={<AgePredictor />} />
+            <Route path="/counter" element={<Counter />} />
+            <Route path="*" element={<NotFound />} />
+            <Route path="/pony" element={<PonyLayout />}>
+              <Route path="/pony/my-pony" element={<MyPony />} />
+              <Route path="/pony/buy-pony" element={<BuyPony />} />
+            </Route>
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
